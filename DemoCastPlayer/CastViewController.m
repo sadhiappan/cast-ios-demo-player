@@ -318,9 +318,21 @@ static NSString *kNoTimeString = @"--:--";
 
 - (void)mediaProtocolCommandDidComplete:(GCKMediaProtocolCommand *)command {
   if (command.hasError) {
-    NSString *message = [NSString stringWithFormat:@"RAMP %@ command failed.", command.type];
+    NSString *info = @"";
+    if ([kGCKMediaProtocolErrorDomain isEqual:command.errorDomain]) {
+      if (kGCKMediaProtocolErrorInvalidPlayerState == command.errorCode) {
+        info = @" InvalidPlayerState";
+      } else if (kGCKMediaProtocolErrorFailedToLoadMedia == command.errorCode) {
+        info = @" FailedToLoadMedia";
+      } else if (kGCKMediaProtocolErrorMediaLoadCancelled == command.errorCode) {
+        info = @" MediaLoadCancelled";
+      } else if (kGCKMediaProtocolErrorInvalidRequest == command.errorCode) {
+        info = @" InvalidRequest";
+      }
+    }
+    NSString *message = [NSString stringWithFormat:@"RAMP %@ command failed.%@", command.type, info];
     [self showError:message];
-    NSLog(@"RAMP command %@ failed: %@/%d.", command.type, command.errorDomain, command.errorCode);
+    NSLog(@"RAMP command %@ failed: %@/%d.%@", command.type, command.errorDomain, command.errorCode, info);
   } else {
     NSLog(@"RAMP command %@ completed.", command.type);
   }
