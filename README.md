@@ -18,3 +18,5 @@ static NSString *kReceiverAppName = @"abcdef-1abc-4def-9876-123456789";
 
 (2.c) in the File Inspector click the icon on the far right, just below the Location popup dialog item. It will give you an 'Open' dialog box where you can navigate to the your copy of GCKFramework.framework .
 
+(3) To install the app on a device, you must edit bundle identifier in DemoCastPlayer-Info.plist from com.google.${PRODUCT_NAME:rfc1034identifier} - replace the 'com.google' with the identifier you registered with Apple in https://developer.apple.com/account/ios/identifiers/bundle/bundleList.action
+ 
