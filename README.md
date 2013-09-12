@@ -10,6 +10,8 @@ When you are done, it will look something like:
 
 static NSString *kReceiverAppName = @"abcdef-1abc-4def-9876-123456789";
 
+(1.a) Make the same replacement of [YOUR_APP_NAME] in receiver/receiver.html.
+
 (2) In the Xcode project, correct the path to your copy of the GCKFramework.framework. One way to do this:
 
 (2.a) The left column of Xcode project window should show the File Navigator, and the right column should show the File Inspector.
