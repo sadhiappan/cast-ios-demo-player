@@ -15,9 +15,41 @@
 #import "MediaTableViewController.h"
 #import "AppDelegate.h"
 #import "Media.h"
-#import "MediaList.h"
+
+static NSString *const kPrefMediaListURL = @"media_list_url";
 
 @implementation MediaTableViewController
+
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  appDelegate.mediaList.delegate = self;
+
+  if (!appDelegate.mediaList.loaded) {
+    [self onDefaultsChanged:nil];
+  }
+
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(onDefaultsChanged:)
+                                               name:NSUserDefaultsDidChangeNotification
+                                             object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+  [appDelegate.mediaList cancelLoad];
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:NSUserDefaultsDidChangeNotification
+                                                object:nil];
+  [super viewWillDisappear:animated];
+}
+
+- (void)showError:(NSString *)message {
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                                  message:message
+                                                 delegate:nil
+                                        cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                        otherButtonTitles:nil];
+  [alert show];
+}
 
 #pragma mark - Table view data source
 
@@ -56,6 +88,38 @@
   [self.selectionDelegate mediaWasSelected:media];
 
   [[self navigationController] popViewControllerAnimated:YES];
+}
+
+#pragma mark - MediaListDelegate
+
+- (void)mediaListDidLoad:(MediaList *)list {
+  [self.tableView reloadData];
+}
+
+- (void)mediaList:(MediaList *)list didFailToLoadWithError:(NSError *)error {
+  NSString *message = [NSString stringWithFormat:@"Unable to download the media list:\n%@",
+                       [error localizedDescription]];
+  [self showError:message];
+}
+
+#pragma mark - Preferences
+
+- (void)onDefaultsChanged:(NSNotification *)notification {
+  NSLog(@"preferences changed");
+  NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
+
+  NSString *urlText = [standardDefaults stringForKey:kPrefMediaListURL];
+  NSURL *url;
+  if (![[urlText lowercaseString] hasPrefix:@"http"] ||
+      [urlText isEqual:@"http://Your_Media_URL_Here"]) {
+    NSLog(@"Put a valid http URL to your media.xml in Settings.bundle/Root.plist");
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"media" ofType:@"xml"];
+    url = [NSURL fileURLWithPath:path];
+  } else {
+    url = [NSURL URLWithString:urlText];
+  }
+
+  [appDelegate.mediaList loadFromURL:url];
 }
 
 @end

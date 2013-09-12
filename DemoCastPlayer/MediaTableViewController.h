@@ -14,9 +14,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "MediaList.h"
 #import "MediaSelectionDelegate.h"
 
-@interface MediaTableViewController : UIViewController
+@interface MediaTableViewController : UITableViewController <MediaListDelegate>
 
 @property (nonatomic, copy) NSURL *selectedMediaURL;
 @property (nonatomic, weak) id<MediaSelectionDelegate> selectionDelegate;

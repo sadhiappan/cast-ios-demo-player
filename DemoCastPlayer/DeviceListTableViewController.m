@@ -18,6 +18,7 @@
 
 @interface DeviceListTableViewController () <GCKDeviceManagerListener> {
   NSMutableArray *_devices;
+  GCKApplicationSupportFilterListener *_deviceFilter;
 }
 
 @end
@@ -27,18 +28,29 @@
 - (void)viewDidLoad {
   if (!_devices) {
     _devices = [[NSMutableArray alloc] init];
+    _deviceFilter = [[GCKApplicationSupportFilterListener alloc] initWithContext:appDelegate.context
+                                                                 applicationName:kReceiverAppName
+                                                                       protocols:nil
+                                                              downstreamListener:self];
   }
   [super viewDidLoad];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
-  [appDelegate.deviceManager addListener:self];
+  [appDelegate.deviceManager addListener:_deviceFilter];
   [appDelegate.deviceManager startScan];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+  [_devices removeAllObjects];
+  [_devices addObjectsFromArray:appDelegate.deviceManager.devices];
+  [self.tableView reloadData];
+  [super viewWillAppear:animated];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
-  [appDelegate.deviceManager removeListener:self];
+  [appDelegate.deviceManager removeListener:_deviceFilter];
   [appDelegate.deviceManager stopScan];
   [super viewWillDisappear:animated];
 }

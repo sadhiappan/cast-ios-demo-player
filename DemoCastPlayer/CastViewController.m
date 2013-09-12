@@ -21,9 +21,9 @@
 #import "MediaSelectionDelegate.h"
 #import "MediaTableViewController.h"
 
-static NSString *kReceiverAppName = @"[YOUR_APP_NAME]";
-
 static NSString *kNoTimeString = @"--:--";
+
+static NSString *const kPrefStopAppWhenSessionEnds = @"stop_app_when_session_ends";
 
 @interface CastViewController () <GCKApplicationSessionDelegate,
     GCKMediaProtocolMessageStreamDelegate, GCKMediaProtocolCommandDelegate,
@@ -54,6 +54,17 @@ static NSString *kNoTimeString = @"--:--";
                                            repeats:YES];
   [self updateForMediaSelection];
   [self updateButtonStates];
+
+  [self onDefaultsChanged:nil];
+
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(onDefaultsChanged:)
+                                               name:NSUserDefaultsDidChangeNotification
+                                             object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(applicationDidEnterBackground:)
+                                               name:UIApplicationDidEnterBackgroundNotification
+                                             object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -61,6 +72,13 @@ static NSString *kNoTimeString = @"--:--";
   [_timer invalidate];
   _timer = nil;
   [_imageRequest cancel];
+}
+
+- (void)applicationDidEnterBackground:(NSNotification *)notification {
+  // If the compiler complains that the session doesn't have a visible
+  // endSessionInBackgroundTask then your copy of GCKFramework.framework is too
+  // old. Please update it from https://developers.google.com/cast/downloads/
+  [_session endSessionInBackgroundTask];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -76,6 +94,10 @@ static NSString *kNoTimeString = @"--:--";
     _session = [[GCKApplicationSession alloc] initWithContext:appDelegate.context
                                                        device:self.device];
     _session.delegate = self;
+
+    NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
+    _session.stopApplicationWhenSessionEnds =
+        [standardDefaults boolForKey:kPrefStopAppWhenSessionEnds];
     [_session startSessionWithApplication:kReceiverAppName argument:nil];
   } else {
     [self playSelectedMedia];
@@ -96,7 +118,14 @@ static NSString *kNoTimeString = @"--:--";
 }
 
 - (IBAction)endSession:(id)sender {
-  if (!_session) return;
+  // If the compiler complains that the session doesn't have a visible
+  // sessionState then your copy of GCKFramework.framework is too
+  // old. Please update it from https://developers.google.com/cast/downloads/
+  if (!_session
+      || (_session.sessionState == kGCKSessionStateEnding)
+      || (_session.sessionState == kGCKSessionStateNotStarted)) {
+    return;
+  }
 
   [_session endSession];
 }
@@ -293,6 +322,8 @@ static NSString *kNoTimeString = @"--:--";
 }
 
 - (void)applicationSessionDidEndWithError:(GCKApplicationSessionError *)error {
+  NSLog(@"notifying that session ended");
+
   _ramp = nil;
   [self updateButtonStates];
 
@@ -318,21 +349,9 @@ static NSString *kNoTimeString = @"--:--";
 
 - (void)mediaProtocolCommandDidComplete:(GCKMediaProtocolCommand *)command {
   if (command.hasError) {
-    NSString *info = @"";
-    if ([kGCKMediaProtocolErrorDomain isEqual:command.errorDomain]) {
-      if (kGCKMediaProtocolErrorInvalidPlayerState == command.errorCode) {
-        info = @" InvalidPlayerState";
-      } else if (kGCKMediaProtocolErrorFailedToLoadMedia == command.errorCode) {
-        info = @" FailedToLoadMedia";
-      } else if (kGCKMediaProtocolErrorMediaLoadCancelled == command.errorCode) {
-        info = @" MediaLoadCancelled";
-      } else if (kGCKMediaProtocolErrorInvalidRequest == command.errorCode) {
-        info = @" InvalidRequest";
-      }
-    }
-    NSString *message = [NSString stringWithFormat:@"RAMP %@ command failed.%@", command.type, info];
+    NSString *message = [NSString stringWithFormat:@"RAMP %@ command failed.", command.type];
     [self showError:message];
-    NSLog(@"RAMP command %@ failed: %@/%d.%@", command.type, command.errorDomain, command.errorCode, info);
+    NSLog(@"RAMP command %@ failed: %@/%d.", command.type, command.errorDomain, command.errorCode);
   } else {
     NSLog(@"RAMP command %@ completed.", command.type);
   }
@@ -370,6 +389,22 @@ static NSString *kNoTimeString = @"--:--";
   NSLog(@"media was selected: %@", media.title);
   _selectedMedia = media;
   [self updateForMediaSelection];
+}
+
+#pragma mark - Preferences
+
+- (void)onDefaultsChanged:(NSNotification *)notification {
+  NSLog(@"preferences changed");
+  NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
+
+  // If the compiler complains that the session doesn't have a visible
+  // sessionState then your copy of GCKFramework.framework is too
+  // old. Please update it from https://developers.google.com/cast/downloads/
+  if (_session && (_session.sessionState != kGCKSessionStateEnding)) {
+    _session.stopApplicationWhenSessionEnds =
+        [standardDefaults boolForKey:kPrefStopAppWhenSessionEnds];
+  }
+
 }
 
 @end

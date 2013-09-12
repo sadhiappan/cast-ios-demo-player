@@ -14,16 +14,32 @@
 
 #import <Foundation/Foundation.h>
 
+#import <GCKFramework/GCKFramework.h>
+
 @class Media;
+
+@protocol MediaListDelegate;
 
 @interface MediaList : NSObject
 
-- (id)initWithPath:(NSString *)path;
+@property(nonatomic, weak) id<MediaListDelegate> delegate;
+@property(nonatomic, readonly) BOOL loaded;
 
-- (BOOL)load;
+- (id)init;
+
+- (void)loadFromURL:(NSURL *)url;
+
+- (void)cancelLoad;
 
 - (NSUInteger)count;
 
 - (Media *)itemAtIndex:(NSUInteger)index;
+
+@end
+
+@protocol MediaListDelegate <NSObject>
+
+- (void)mediaListDidLoad:(MediaList *)list;
+- (void)mediaList:(MediaList *)list didFailToLoadWithError:(NSError *)error;
 
 @end

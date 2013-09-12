@@ -15,6 +15,8 @@
 #import "AppDelegate.h"
 #import "MediaList.h"
 
+NSString *const kReceiverAppName = @"[YOUR_APP_NAME]";
+
 @interface AppDelegate ()
 
 @property(nonatomic, strong, readwrite) GCKContext *context;
@@ -27,21 +29,48 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  self.context = [[GCKContext alloc] initWithUserAgent:@"DemoCastPlayer"];
+  NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
+  NSString *appIdentifier = [info objectForKey:@"CFBundleIdentifier"];
+  self.context = [[GCKContext alloc] initWithUserAgent:appIdentifier];
   self.deviceManager = [[GCKDeviceManager alloc] initWithContext:self.context];
 
-  [self loadMediaList];
+  [self populateRegistrationDomain];
+
+  self.mediaList = [[MediaList alloc] init];
 
   return YES;
 }
 
-- (void)loadMediaList {
-  NSString *xmlFile = [[NSBundle mainBundle] pathForResource:@"media" ofType:@"xml"];
-  self.mediaList = [[MediaList alloc] initWithPath:xmlFile];
-  if ([self.mediaList load]) {
-    NSLog(@"loaded %d media items", [self.mediaList count]);
-  } else {
-    NSLog(@"failed to load media list");
+- (void)populateRegistrationDomain {
+   NSURL *settingsBundleURL = [[NSBundle mainBundle] URLForResource:@"Settings"
+                                                      withExtension:@"bundle"];
+  NSMutableDictionary *appDefaults = [NSMutableDictionary dictionary];
+  [self loadDefaults:appDefaults
+           fromSettingsPage:@"Root.plist"
+      inSettingsBundleAtURL:settingsBundleURL];
+  [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+  [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)loadDefaults:(NSMutableDictionary *)appDefaults
+         fromSettingsPage:(NSString *)plistName
+    inSettingsBundleAtURL:(NSURL *)settingsBundleURL {
+  NSDictionary *settingsDict = [NSDictionary dictionaryWithContentsOfURL:
+                                [settingsBundleURL URLByAppendingPathComponent:plistName]];
+  NSArray *prefSpecifierArray = [settingsDict objectForKey:@"PreferenceSpecifiers"];
+
+  for (NSDictionary *prefItem in prefSpecifierArray) {
+    NSString *prefItemType = prefItem[@"Type"];
+    NSString *prefItemKey = prefItem[@"Key"];
+    NSString *prefItemDefaultValue = prefItem[@"DefaultValue"];
+
+    if ([prefItemType isEqualToString:@"PSChildPaneSpecifier"]) {
+      NSString *prefItemFile = prefItem[@"File"];
+      [self loadDefaults:appDefaults fromSettingsPage:prefItemFile
+           inSettingsBundleAtURL:settingsBundleURL];
+    } else if (prefItemKey && prefItemDefaultValue) {
+       [appDefaults setObject:prefItemDefaultValue forKey:prefItemKey];
+    }
   }
 }
 

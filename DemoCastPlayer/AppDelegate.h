@@ -19,6 +19,8 @@
 @class Media;
 @class MediaList;
 
+extern NSString *const kReceiverAppName;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property(nonatomic, strong) UIWindow *window;

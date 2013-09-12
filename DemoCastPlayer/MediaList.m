@@ -15,32 +15,46 @@
 #import "MediaList.h"
 #import "Media.h"
 
-@interface MediaList () <NSXMLParserDelegate> {
-  NSString *_path;
+@interface MediaList () <GCKSimpleHTTPRequestDelegate, NSXMLParserDelegate> {
+  GCKSimpleHTTPRequest *_request;
   NSMutableArray *_list;
 }
+
+@property(nonatomic, readwrite) BOOL loaded;
 
 @end
 
 @implementation MediaList
 
-- (id)initWithPath:(NSString *)path {
+- (id)init {
   if (self = [super init]) {
-    _path = path;
     _list = [[NSMutableArray alloc] init];
   }
   return self;
 
 }
 
-- (BOOL)load {
+- (void)loadFromURL:(NSURL *)url {
   [_list removeAllObjects];
-
-  NSData *xmlData = [NSData dataWithContentsOfFile:_path];
-  NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:xmlData];
-  [xmlParser setDelegate:self];
-  return [xmlParser parse];
+  if ([url isFileURL]) {
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    NSLog(@"httpRequest completed with data length %d", [data length]);
+    [self parseWithData:data];
+  } else {
+    _request = [[GCKSimpleHTTPRequest alloc] init];
+    _request.delegate = self;
+    [_request startGetRequest:url];
+  }
+  NSLog(@"loading media list from URL %@", url);
 }
+
+- (void)cancelLoad {
+  if (_request) {
+    [_request cancel];
+    _request = nil;
+  }
+}
+
 
 - (NSUInteger)count {
   return [_list count];
@@ -48,6 +62,36 @@
 
 - (Media *)itemAtIndex:(NSUInteger)index {
   return (Media *)[_list objectAtIndex:index];
+}
+
+#pragma mark - GCKSimpleHTTPRequestDelegate
+
+- (void)httpRequest:(GCKSimpleHTTPRequest *)request
+    didCompleteWithStatusCode:(NSInteger)status
+                     finalURL:(NSURL *)finalURL
+                      headers:(NSDictionary *)headers
+                         data:(GCKMimeData *)data {
+  NSLog(@"httpRequest completed with %d", status);
+
+  if (status == kGCKHTTPStatusOK) {
+    [self parseWithData:data.data];
+  } else {
+    NSError *error = [[NSError alloc] initWithDomain:@"HTTP" code:status userInfo:nil];
+    [self.delegate mediaList:self didFailToLoadWithError:error];
+  }
+}
+
+- (void)parseWithData:(NSData *)xml {
+  NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:xml];
+  [xmlParser setDelegate:self];
+  [xmlParser parse];
+  self.loaded = YES;
+  [self.delegate mediaListDidLoad:self];
+}
+
+- (void)httpRequest:(GCKSimpleHTTPRequest *)request didFailWithError:(NSError *)error {
+  NSLog(@"httpRequest failed with %@", error);
+  [self.delegate mediaList:self didFailToLoadWithError:error];
 }
 
 #pragma mark - NSXMLParserDelegate

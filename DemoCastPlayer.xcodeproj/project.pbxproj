@@ -7,133 +7,131 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		63F5113A17C1660D00677EE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F5113517C1660D00677EE9 /* AppDelegate.m */; };
-		63F5113B17C1660D00677EE9 /* CastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F5113717C1660D00677EE9 /* CastViewController.m */; };
-		63F5113C17C1660D00677EE9 /* DeviceListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F5113917C1660D00677EE9 /* DeviceListTableViewController.m */; };
-		63F5114517C166D700677EE9 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63F5114317C166D700677EE9 /* MainStoryboard_iPad.storyboard */; };
-		63F5115317C168AD00677EE9 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F5114D17C168AC00677EE9 /* Media.m */; };
-		63F5115417C168AD00677EE9 /* MediaList.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F5114F17C168AC00677EE9 /* MediaList.m */; };
-		63F5115517C168AD00677EE9 /* MediaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F5115217C168AD00677EE9 /* MediaTableViewController.m */; };
-		63F5115717C168E600677EE9 /* media.xml in Resources */ = {isa = PBXBuildFile; fileRef = 63F5115617C168E600677EE9 /* media.xml */; };
-		9D852B191799E71400937BFD /* GCKFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D852B181799E71400937BFD /* GCKFramework.framework */; };
-		9DB5008A171C54BC0031502C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB50089171C54BC0031502C /* CoreMedia.framework */; };
-		9DB6059C171B5573005FCA7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB6059B171B5573005FCA7D /* UIKit.framework */; };
-		9DB6059E171B5573005FCA7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB6059D171B5573005FCA7D /* Foundation.framework */; };
-		9DB605A0171B5573005FCA7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB6059F171B5573005FCA7D /* CoreGraphics.framework */; };
-		9DB605A6171B5573005FCA7D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DB605A4171B5573005FCA7D /* InfoPlist.strings */; };
-		9DB605A8171B5573005FCA7D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB605A7171B5573005FCA7D /* main.m */; };
-		9DB605B5171B5573005FCA7D /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DB605B3171B5573005FCA7D /* MainStoryboard_iPhone.storyboard */; };
-		9DB605D0171B6D42005FCA7D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB605CF171B6D42005FCA7D /* AVFoundation.framework */; };
+		638B16A117DD09B600A73E17 /* media.xml in Resources */ = {isa = PBXBuildFile; fileRef = 638B16A017DD09B600A73E17 /* media.xml */; };
+		6837B38917C6FC5F003E52A3 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6837B38817C6FC5F003E52A3 /* Settings.bundle */; };
+		6837B39017C70325003E52A3 /* Icon-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 6837B38E17C70325003E52A3 /* Icon-57x57.png */; };
+		6837B39117C70325003E52A3 /* Icon-114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 6837B38F17C70325003E52A3 /* Icon-114x114.png */; };
+		68A5CC261731D924009140AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A5CC251731D924009140AD /* UIKit.framework */; };
+		68A5CC281731D924009140AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A5CC271731D924009140AD /* Foundation.framework */; };
+		68A5CC2A1731D924009140AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A5CC291731D924009140AD /* CoreGraphics.framework */; };
+		68A5CC301731D924009140AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68A5CC2E1731D924009140AD /* InfoPlist.strings */; };
+		68A5CC321731D924009140AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A5CC311731D924009140AD /* main.m */; };
+		68A5CC361731D924009140AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A5CC351731D924009140AD /* AppDelegate.m */; };
+		68A5CC3F1731D924009140AD /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68A5CC3D1731D924009140AD /* MainStoryboard_iPhone.storyboard */; };
+		68A5CC4D1731DE2D009140AD /* DeviceListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A5CC4C1731DE2D009140AD /* DeviceListTableViewController.m */; };
+		68A5CC501731DE46009140AD /* CastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A5CC4F1731DE46009140AD /* CastViewController.m */; };
+		68A5CCA5173C4A58009140AD /* MediaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A5CCA4173C4A58009140AD /* MediaTableViewController.m */; };
+		68A5CCA8173C4B9D009140AD /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A5CCA7173C4B9D009140AD /* Media.m */; };
+		68A5CCAD173C5183009140AD /* MediaList.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A5CCAC173C5183009140AD /* MediaList.m */; };
+		68F7CD361741AFE700538A06 /* GCKFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A5CC511731DF20009140AD /* GCKFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		63F5113417C1660D00677EE9 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		63F5113517C1660D00677EE9 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		63F5113617C1660D00677EE9 /* CastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CastViewController.h; sourceTree = "<group>"; };
-		63F5113717C1660D00677EE9 /* CastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CastViewController.m; sourceTree = "<group>"; };
-		63F5113817C1660D00677EE9 /* DeviceListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceListTableViewController.h; sourceTree = "<group>"; };
-		63F5113917C1660D00677EE9 /* DeviceListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceListTableViewController.m; sourceTree = "<group>"; };
-		63F5114417C166D700677EE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		63F5114817C1673F00677EE9 /* DemoCastPlayer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DemoCastPlayer-Info.plist"; sourceTree = "<group>"; };
-		63F5114917C1673F00677EE9 /* DemoCastPlayer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DemoCastPlayer-Prefix.pch"; sourceTree = "<group>"; };
-		63F5114C17C168AC00677EE9 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
-		63F5114D17C168AC00677EE9 /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
-		63F5114E17C168AC00677EE9 /* MediaList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaList.h; sourceTree = "<group>"; };
-		63F5114F17C168AC00677EE9 /* MediaList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaList.m; sourceTree = "<group>"; };
-		63F5115017C168AC00677EE9 /* MediaSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaSelectionDelegate.h; sourceTree = "<group>"; };
-		63F5115117C168AD00677EE9 /* MediaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewController.h; sourceTree = "<group>"; };
-		63F5115217C168AD00677EE9 /* MediaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewController.m; sourceTree = "<group>"; };
-		63F5115617C168E600677EE9 /* media.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = media.xml; sourceTree = "<group>"; };
-		9D852B181799E71400937BFD /* GCKFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GCKFramework.framework; sourceTree = "<group>"; };
-		9DB50089171C54BC0031502C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		9DB60598171B5573005FCA7D /* DemoCastPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoCastPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DB6059B171B5573005FCA7D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		9DB6059D171B5573005FCA7D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		9DB6059F171B5573005FCA7D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		9DB605A5171B5573005FCA7D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9DB605A7171B5573005FCA7D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9DB605B4171B5573005FCA7D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		9DB605CF171B6D42005FCA7D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		638B16A017DD09B600A73E17 /* media.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = media.xml; sourceTree = "<group>"; };
+		6837B38817C6FC5F003E52A3 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		6837B38E17C70325003E52A3 /* Icon-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-57x57.png"; path = "Icon/Icon-57x57.png"; sourceTree = "<group>"; };
+		6837B38F17C70325003E52A3 /* Icon-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-114x114.png"; path = "Icon/Icon-114x114.png"; sourceTree = "<group>"; };
+		68A5CC221731D924009140AD /* DemoCastPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoCastPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		68A5CC251731D924009140AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		68A5CC271731D924009140AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		68A5CC291731D924009140AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		68A5CC2D1731D924009140AD /* DemoCastPlayer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DemoCastPlayer-Info.plist"; sourceTree = "<group>"; };
+		68A5CC2F1731D924009140AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		68A5CC311731D924009140AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		68A5CC331731D924009140AD /* DemoCastPlayer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DemoCastPlayer-Prefix.pch"; sourceTree = "<group>"; };
+		68A5CC341731D924009140AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		68A5CC351731D924009140AD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		68A5CC3E1731D924009140AD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		68A5CC4B1731DE2D009140AD /* DeviceListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceListTableViewController.h; sourceTree = "<group>"; };
+		68A5CC4C1731DE2D009140AD /* DeviceListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceListTableViewController.m; sourceTree = "<group>"; };
+		68A5CC4E1731DE46009140AD /* CastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CastViewController.h; sourceTree = "<group>"; };
+		68A5CC4F1731DE46009140AD /* CastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CastViewController.m; sourceTree = "<group>"; };
+		68A5CC511731DF20009140AD /* GCKFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GCKFramework.framework; path = ../GCKFramework.framework; sourceTree = "<group>"; };
+		68A5CCA3173C4A57009140AD /* MediaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewController.h; sourceTree = "<group>"; };
+		68A5CCA4173C4A58009140AD /* MediaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewController.m; sourceTree = "<group>"; };
+		68A5CCA6173C4B9D009140AD /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
+		68A5CCA7173C4B9D009140AD /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
+		68A5CCAB173C5183009140AD /* MediaList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaList.h; sourceTree = "<group>"; };
+		68A5CCAC173C5183009140AD /* MediaList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaList.m; sourceTree = "<group>"; };
+		68F7CD1317416D9D00538A06 /* MediaSelectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaSelectionDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9DB60595171B5573005FCA7D /* Frameworks */ = {
+		68A5CC1F1731D924009140AD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DB5008A171C54BC0031502C /* CoreMedia.framework in Frameworks */,
-				9DB605D0171B6D42005FCA7D /* AVFoundation.framework in Frameworks */,
-				9DB6059C171B5573005FCA7D /* UIKit.framework in Frameworks */,
-				9DB6059E171B5573005FCA7D /* Foundation.framework in Frameworks */,
-				9DB605A0171B5573005FCA7D /* CoreGraphics.framework in Frameworks */,
-				9D852B191799E71400937BFD /* GCKFramework.framework in Frameworks */,
+				68F7CD361741AFE700538A06 /* GCKFramework.framework in Frameworks */,
+				68A5CC261731D924009140AD /* UIKit.framework in Frameworks */,
+				68A5CC281731D924009140AD /* Foundation.framework in Frameworks */,
+				68A5CC2A1731D924009140AD /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9DB6058F171B5573005FCA7D = {
+		68A5CC191731D924009140AD = {
 			isa = PBXGroup;
 			children = (
-				9DB605A1171B5573005FCA7D /* DemoCastPlayer */,
-				9DB6059A171B5573005FCA7D /* Frameworks */,
-				9DB60599171B5573005FCA7D /* Products */,
+				68A5CC2B1731D924009140AD /* DemoCastPlayer */,
+				68A5CC241731D924009140AD /* Frameworks */,
+				68A5CC231731D924009140AD /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9DB60599171B5573005FCA7D /* Products */ = {
+		68A5CC231731D924009140AD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9DB60598171B5573005FCA7D /* DemoCastPlayer.app */,
+				68A5CC221731D924009140AD /* DemoCastPlayer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9DB6059A171B5573005FCA7D /* Frameworks */ = {
+		68A5CC241731D924009140AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9D852B181799E71400937BFD /* GCKFramework.framework */,
-				9DB50089171C54BC0031502C /* CoreMedia.framework */,
-				9DB605CF171B6D42005FCA7D /* AVFoundation.framework */,
-				9DB6059B171B5573005FCA7D /* UIKit.framework */,
-				9DB6059D171B5573005FCA7D /* Foundation.framework */,
-				9DB6059F171B5573005FCA7D /* CoreGraphics.framework */,
+				68A5CC511731DF20009140AD /* GCKFramework.framework */,
+				68A5CC251731D924009140AD /* UIKit.framework */,
+				68A5CC271731D924009140AD /* Foundation.framework */,
+				68A5CC291731D924009140AD /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9DB605A1171B5573005FCA7D /* DemoCastPlayer */ = {
+		68A5CC2B1731D924009140AD /* DemoCastPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				63F5113417C1660D00677EE9 /* AppDelegate.h */,
-				63F5113517C1660D00677EE9 /* AppDelegate.m */,
-				63F5113617C1660D00677EE9 /* CastViewController.h */,
-				63F5113717C1660D00677EE9 /* CastViewController.m */,
-				63F5113817C1660D00677EE9 /* DeviceListTableViewController.h */,
-				63F5113917C1660D00677EE9 /* DeviceListTableViewController.m */,
-				63F5114C17C168AC00677EE9 /* Media.h */,
-				63F5114D17C168AC00677EE9 /* Media.m */,
-				63F5114E17C168AC00677EE9 /* MediaList.h */,
-				63F5114F17C168AC00677EE9 /* MediaList.m */,
-				63F5115017C168AC00677EE9 /* MediaSelectionDelegate.h */,
-				63F5115117C168AD00677EE9 /* MediaTableViewController.h */,
-				63F5115217C168AD00677EE9 /* MediaTableViewController.m */,
-				9DB605A2171B5573005FCA7D /* Supporting Files */,
+				68A5CC341731D924009140AD /* AppDelegate.h */,
+				68A5CC351731D924009140AD /* AppDelegate.m */,
+				68A5CC2C1731D924009140AD /* Supporting Files */,
+				68A5CC4B1731DE2D009140AD /* DeviceListTableViewController.h */,
+				68A5CC4C1731DE2D009140AD /* DeviceListTableViewController.m */,
+				68A5CC4E1731DE46009140AD /* CastViewController.h */,
+				68A5CC4F1731DE46009140AD /* CastViewController.m */,
+				68A5CCA3173C4A57009140AD /* MediaTableViewController.h */,
+				68A5CCA4173C4A58009140AD /* MediaTableViewController.m */,
+				68A5CCA6173C4B9D009140AD /* Media.h */,
+				68A5CCA7173C4B9D009140AD /* Media.m */,
+				68A5CCAB173C5183009140AD /* MediaList.h */,
+				68A5CCAC173C5183009140AD /* MediaList.m */,
+				68F7CD1317416D9D00538A06 /* MediaSelectionDelegate.h */,
 			);
 			path = DemoCastPlayer;
 			sourceTree = "<group>";
 		};
-		9DB605A2171B5573005FCA7D /* Supporting Files */ = {
+		68A5CC2C1731D924009140AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				63F5114817C1673F00677EE9 /* DemoCastPlayer-Info.plist */,
-				63F5114917C1673F00677EE9 /* DemoCastPlayer-Prefix.pch */,
-				63F5115617C168E600677EE9 /* media.xml */,
-				9DB605B3171B5573005FCA7D /* MainStoryboard_iPhone.storyboard */,
-				63F5114317C166D700677EE9 /* MainStoryboard_iPad.storyboard */,
-				9DB605A4171B5573005FCA7D /* InfoPlist.strings */,
-				9DB605A7171B5573005FCA7D /* main.m */,
+				68A5CC3D1731D924009140AD /* MainStoryboard_iPhone.storyboard */,
+				638B16A017DD09B600A73E17 /* media.xml */,
+				6837B38817C6FC5F003E52A3 /* Settings.bundle */,
+				68A5CC2D1731D924009140AD /* DemoCastPlayer-Info.plist */,
+				6837B38E17C70325003E52A3 /* Icon-57x57.png */,
+				6837B38F17C70325003E52A3 /* Icon-114x114.png */,
+				68A5CC2E1731D924009140AD /* InfoPlist.strings */,
+				68A5CC311731D924009140AD /* main.m */,
+				68A5CC331731D924009140AD /* DemoCastPlayer-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -141,102 +139,94 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9DB60597171B5573005FCA7D /* DemoCastPlayer */ = {
+		68A5CC211731D924009140AD /* DemoCastPlayer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9DB605BE171B5573005FCA7D /* Build configuration list for PBXNativeTarget "DemoCastPlayer" */;
+			buildConfigurationList = 68A5CC481731D924009140AD /* Build configuration list for PBXNativeTarget "DemoCastPlayer" */;
 			buildPhases = (
-				9DB60594171B5573005FCA7D /* Sources */,
-				9DB60595171B5573005FCA7D /* Frameworks */,
-				9DB60596171B5573005FCA7D /* Resources */,
+				68A5CC1E1731D924009140AD /* Sources */,
+				68A5CC1F1731D924009140AD /* Frameworks */,
+				68A5CC201731D924009140AD /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = DemoCastPlayer;
-			productName = ChromekeyDemo;
-			productReference = 9DB60598171B5573005FCA7D /* DemoCastPlayer.app */;
+			productName = DemoCastPlayer;
+			productReference = 68A5CC221731D924009140AD /* DemoCastPlayer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9DB60590171B5573005FCA7D /* Project object */ = {
+		68A5CC1A1731D924009140AD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = CAST;
 				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = Google;
 			};
-			buildConfigurationList = 9DB60593171B5573005FCA7D /* Build configuration list for PBXProject "DemoCastPlayer" */;
+			buildConfigurationList = 68A5CC1D1731D924009140AD /* Build configuration list for PBXProject "DemoCastPlayer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 9DB6058F171B5573005FCA7D;
-			productRefGroup = 9DB60599171B5573005FCA7D /* Products */;
+			mainGroup = 68A5CC191731D924009140AD;
+			productRefGroup = 68A5CC231731D924009140AD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9DB60597171B5573005FCA7D /* DemoCastPlayer */,
+				68A5CC211731D924009140AD /* DemoCastPlayer */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9DB60596171B5573005FCA7D /* Resources */ = {
+		68A5CC201731D924009140AD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DB605A6171B5573005FCA7D /* InfoPlist.strings in Resources */,
-				9DB605B5171B5573005FCA7D /* MainStoryboard_iPhone.storyboard in Resources */,
-				63F5114517C166D700677EE9 /* MainStoryboard_iPad.storyboard in Resources */,
-				63F5115717C168E600677EE9 /* media.xml in Resources */,
+				68A5CC301731D924009140AD /* InfoPlist.strings in Resources */,
+				68A5CC3F1731D924009140AD /* MainStoryboard_iPhone.storyboard in Resources */,
+				6837B38917C6FC5F003E52A3 /* Settings.bundle in Resources */,
+				6837B39017C70325003E52A3 /* Icon-57x57.png in Resources */,
+				6837B39117C70325003E52A3 /* Icon-114x114.png in Resources */,
+				638B16A117DD09B600A73E17 /* media.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9DB60594171B5573005FCA7D /* Sources */ = {
+		68A5CC1E1731D924009140AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DB605A8171B5573005FCA7D /* main.m in Sources */,
-				63F5113A17C1660D00677EE9 /* AppDelegate.m in Sources */,
-				63F5113B17C1660D00677EE9 /* CastViewController.m in Sources */,
-				63F5113C17C1660D00677EE9 /* DeviceListTableViewController.m in Sources */,
-				63F5115317C168AD00677EE9 /* Media.m in Sources */,
-				63F5115417C168AD00677EE9 /* MediaList.m in Sources */,
-				63F5115517C168AD00677EE9 /* MediaTableViewController.m in Sources */,
+				68A5CC321731D924009140AD /* main.m in Sources */,
+				68A5CC361731D924009140AD /* AppDelegate.m in Sources */,
+				68A5CC4D1731DE2D009140AD /* DeviceListTableViewController.m in Sources */,
+				68A5CC501731DE46009140AD /* CastViewController.m in Sources */,
+				68A5CCA5173C4A58009140AD /* MediaTableViewController.m in Sources */,
+				68A5CCA8173C4B9D009140AD /* Media.m in Sources */,
+				68A5CCAD173C5183009140AD /* MediaList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		63F5114317C166D700677EE9 /* MainStoryboard_iPad.storyboard */ = {
+		68A5CC2E1731D924009140AD /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				63F5114417C166D700677EE9 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		9DB605A4171B5573005FCA7D /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9DB605A5171B5573005FCA7D /* en */,
+				68A5CC2F1731D924009140AD /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		9DB605B3171B5573005FCA7D /* MainStoryboard_iPhone.storyboard */ = {
+		68A5CC3D1731D924009140AD /* MainStoryboard_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9DB605B4171B5573005FCA7D /* en */,
+				68A5CC3E1731D924009140AD /* en */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -244,7 +234,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		9DB605BC171B5573005FCA7D /* Debug */ = {
+		68A5CC461731D924009140AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -269,15 +259,14 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
-				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		9DB605BD171B5573005FCA7D /* Release */ = {
+		68A5CC471731D924009140AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -295,16 +284,15 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		9DB605BF171B5573005FCA7D /* Debug */ = {
+		68A5CC491731D924009140AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -314,13 +302,16 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DemoCastPlayer/DemoCastPlayer-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/DemoCastPlayer/DemoCastPlayer-Info.plist";
-				PRODUCT_NAME = DemoCastPlayer;
+				INFOPLIST_FILE = "DemoCastPlayer/DemoCastPlayer-Info.plist";
+				"OTHER_CFLAGS[arch=*]" = "";
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		9DB605C0171B5573005FCA7D /* Release */ = {
+		68A5CC4A1731D924009140AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -330,8 +321,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DemoCastPlayer/DemoCastPlayer-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/DemoCastPlayer/DemoCastPlayer-Info.plist";
-				PRODUCT_NAME = DemoCastPlayer;
+				INFOPLIST_FILE = "DemoCastPlayer/DemoCastPlayer-Info.plist";
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -339,25 +333,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9DB60593171B5573005FCA7D /* Build configuration list for PBXProject "DemoCastPlayer" */ = {
+		68A5CC1D1731D924009140AD /* Build configuration list for PBXProject "DemoCastPlayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9DB605BC171B5573005FCA7D /* Debug */,
-				9DB605BD171B5573005FCA7D /* Release */,
+				68A5CC461731D924009140AD /* Debug */,
+				68A5CC471731D924009140AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9DB605BE171B5573005FCA7D /* Build configuration list for PBXNativeTarget "DemoCastPlayer" */ = {
+		68A5CC481731D924009140AD /* Build configuration list for PBXNativeTarget "DemoCastPlayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9DB605BF171B5573005FCA7D /* Debug */,
-				9DB605C0171B5573005FCA7D /* Release */,
+				68A5CC491731D924009140AD /* Debug */,
+				68A5CC4A1731D924009140AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 9DB60590171B5573005FCA7D /* Project object */;
+	rootObject = 68A5CC1A1731D924009140AD /* Project object */;
 }
