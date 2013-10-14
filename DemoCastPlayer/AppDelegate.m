@@ -12,12 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
 #import "AppDelegate.h"
 #import "MediaList.h"
 
 NSString *const kReceiverAppName = @"[YOUR_APP_NAME]";
 
-@interface AppDelegate ()
+@interface AppDelegate () <GCKLoggerDelegate>
 
 @property(nonatomic, strong, readwrite) GCKContext *context;
 @property(nonatomic, strong, readwrite) GCKDeviceManager *deviceManager;
@@ -31,9 +32,9 @@ NSString *const kReceiverAppName = @"[YOUR_APP_NAME]";
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
   NSString *appIdentifier = [info objectForKey:@"CFBundleIdentifier"];
+  [GCKLogger sharedInstance].delegate = self;
   self.context = [[GCKContext alloc] initWithUserAgent:appIdentifier];
   self.deviceManager = [[GCKDeviceManager alloc] initWithContext:self.context];
-
   [self populateRegistrationDomain];
 
   self.mediaList = [[MediaList alloc] init];
@@ -72,6 +73,12 @@ NSString *const kReceiverAppName = @"[YOUR_APP_NAME]";
        [appDefaults setObject:prefItemDefaultValue forKey:prefItemKey];
     }
   }
+}
+
+#pragma mark - GCKLoggerDelegate
+
+- (void)logFromFunction:(const char *)function message:(NSString *)message {
+  NSLog(@"%s  %@", function, message);
 }
 
 @end

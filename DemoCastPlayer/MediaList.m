@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
 #import "MediaList.h"
 #import "Media.h"
 
@@ -36,15 +37,10 @@
 
 - (void)loadFromURL:(NSURL *)url {
   [_list removeAllObjects];
-  if ([url isFileURL]) {
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    NSLog(@"httpRequest completed with data length %d", [data length]);
-    [self parseWithData:data];
-  } else {
-    _request = [[GCKSimpleHTTPRequest alloc] init];
-    _request.delegate = self;
-    [_request startGetRequest:url];
-  }
+
+  _request = [[GCKSimpleHTTPRequest alloc] init];
+  _request.delegate = self;
+  [_request startGetRequest:url];
   NSLog(@"loading media list from URL %@", url);
 }
 
@@ -74,19 +70,16 @@
   NSLog(@"httpRequest completed with %d", status);
 
   if (status == kGCKHTTPStatusOK) {
-    [self parseWithData:data.data];
+    NSData *xml = data.data;
+    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:xml];
+    [xmlParser setDelegate:self];
+    [xmlParser parse];
+    self.loaded = YES;
+    [self.delegate mediaListDidLoad:self];
   } else {
     NSError *error = [[NSError alloc] initWithDomain:@"HTTP" code:status userInfo:nil];
     [self.delegate mediaList:self didFailToLoadWithError:error];
   }
-}
-
-- (void)parseWithData:(NSData *)xml {
-  NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:xml];
-  [xmlParser setDelegate:self];
-  [xmlParser parse];
-  self.loaded = YES;
-  [self.delegate mediaListDidLoad:self];
 }
 
 - (void)httpRequest:(GCKSimpleHTTPRequest *)request didFailWithError:(NSError *)error {
