@@ -16,7 +16,7 @@
 #import "AppDelegate.h"
 #import "MediaList.h"
 
-NSString *const kReceiverAppName = @"GoogleCastPlayer";
+NSString *const kReceiverAppName = @"[YOUR_APP_NAME]";
 
 @interface AppDelegate () <GCKLoggerDelegate>
 
