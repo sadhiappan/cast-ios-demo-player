@@ -32,7 +32,7 @@
 			<key>AutocorrectionType</key>
 			<string>No</string>
 			<key>DefaultValue</key>
-			<string>http://Your_Media_URL_Here</string>
+			<string>https://raw.github.com/googlecast/cast-ios-demo-player/master/DemoCastPlayer/media.xml</string>
 			<key>IsSecure</key>
 			<false/>
 			<key>Key</key>

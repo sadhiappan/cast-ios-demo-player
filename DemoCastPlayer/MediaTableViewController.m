@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
 #import "MediaTableViewController.h"
 #import "AppDelegate.h"
 #import "Media.h"
@@ -109,15 +110,7 @@ static NSString *const kPrefMediaListURL = @"media_list_url";
   NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
 
   NSString *urlText = [standardDefaults stringForKey:kPrefMediaListURL];
-  NSURL *url;
-  if (![[urlText lowercaseString] hasPrefix:@"http"] ||
-      [urlText isEqual:@"http://Your_Media_URL_Here"]) {
-    NSLog(@"Put a valid http URL to your media.xml in Settings.bundle/Root.plist");
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"media" ofType:@"xml"];
-    url = [NSURL fileURLWithPath:path];
-  } else {
-    url = [NSURL URLWithString:urlText];
-  }
+  NSURL *url = [NSURL URLWithString:urlText];
 
   [appDelegate.mediaList loadFromURL:url];
 }

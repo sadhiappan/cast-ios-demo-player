@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
 #import "CastViewController.h"
 
 #import <GCKFramework/GCKFramework.h>
@@ -36,6 +37,7 @@ static NSString *const kPrefStopAppWhenSessionEnds = @"stop_app_when_session_end
   BOOL _updatingPosition;
   BOOL _updatingVolume;
   BOOL _resuming;
+  BOOL _destroyingSession;
 }
 
 @end
@@ -75,9 +77,6 @@ static NSString *const kPrefStopAppWhenSessionEnds = @"stop_app_when_session_end
 }
 
 - (void)applicationDidEnterBackground:(NSNotification *)notification {
-  // If the compiler complains that the session doesn't have a visible
-  // endSessionInBackgroundTask then your copy of GCKFramework.framework is too
-  // old. Please update it from https://developers.google.com/cast/downloads/
   [_session endSessionInBackgroundTask];
 }
 
@@ -118,9 +117,6 @@ static NSString *const kPrefStopAppWhenSessionEnds = @"stop_app_when_session_end
 }
 
 - (IBAction)endSession:(id)sender {
-  // If the compiler complains that the session doesn't have a visible
-  // sessionState then your copy of GCKFramework.framework is too
-  // old. Please update it from https://developers.google.com/cast/downloads/
   if (!_session
       || (_session.sessionState == kGCKSessionStateEnding)
       || (_session.sessionState == kGCKSessionStateNotStarted)) {
@@ -133,8 +129,8 @@ static NSString *const kPrefStopAppWhenSessionEnds = @"stop_app_when_session_end
 - (IBAction)destroySession:(id)sender {
   if (!_session) return;
 
+  _destroyingSession = YES;
   [_session endSession];
-  _session = nil;
 }
 
 - (IBAction)resumeSession:(id)sender {
@@ -330,6 +326,11 @@ static NSString *const kPrefStopAppWhenSessionEnds = @"stop_app_when_session_end
   if (error != nil) {
     [self showError:[error localizedDescription]];
   }
+
+  if (_destroyingSession) {
+    _destroyingSession = NO;
+    _session = nil;
+  }
 }
 
 #pragma mark - GCKMediaProtocolMessageStreamDelegate
@@ -397,9 +398,6 @@ static NSString *const kPrefStopAppWhenSessionEnds = @"stop_app_when_session_end
   NSLog(@"preferences changed");
   NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
 
-  // If the compiler complains that the session doesn't have a visible
-  // sessionState then your copy of GCKFramework.framework is too
-  // old. Please update it from https://developers.google.com/cast/downloads/
   if (_session && (_session.sessionState != kGCKSessionStateEnding)) {
     _session.stopApplicationWhenSessionEnds =
         [standardDefaults boolForKey:kPrefStopAppWhenSessionEnds];

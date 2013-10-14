@@ -12,14 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
 #import <UIKit/UIKit.h>
 
 #import <GCKFramework/GCKFramework.h>
 
+extern NSString *const kReceiverAppName;
+
 @class Media;
 @class MediaList;
-
-extern NSString *const kReceiverAppName;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
