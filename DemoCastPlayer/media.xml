@@ -10,7 +10,7 @@
   <media
     title="Real Steel"
     artist="Real Steel"
-    url="http://commondatastorage.googleapis.com/gtv-videos-bucket/big_buck_bunny_1080p.mp4"
+    url="http://http://24.217.145.246:8096/mediabrowser/Videos/caeaf8243b8511e6b41bed4b7ef64482/stream.webm?audioChannels=2&audioBitrate=128000&videoBitrate=2000000&maxWidth=1280&StartTimeTicks=0&SubtitleStreamIndex=&AudioStreamIndex=1&deviceId=a440977c433637b2669d97aa275785b75d43c8cf&videoCodec=vpx&audioCodec=Vorbis"
     mimeType="video/webm"
     imageUrl="http://upload.wikimedia.org/wikipedia/commons/c/c5/Big_buck_bunny_poster_big.jpg"
     />
