@@ -10,7 +10,7 @@
   <media
     title="Real Steel"
     artist="Real Steel"
-    url="http://devilz-pc:8096/mediabrowser/Videos/caeaf8243b8511e6b41bed4b7ef64482/stream.webm"
+    url="http://192.168.1.100:8096/mediabrowser/Videos/caeaf8243b8511e6b41bed4b7ef64482/stream.webm"
     mimeType="video/webm"
     imageUrl="http://upload.wikimedia.org/wikipedia/commons/c/c5/Big_buck_bunny_poster_big.jpg"
     />
