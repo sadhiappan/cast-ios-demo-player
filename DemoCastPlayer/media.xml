@@ -10,7 +10,7 @@
   <media
     title="Real Steel"
     artist="Real Steel"
-    url="http://192.168.1.100:8096/mediabrowser/Videos/caeaf8243b8511e6b41bed4b7ef64482/stream.webm?maxWidth=1280"
+    url="http://devilz-pc:8096/mediabrowser/Videos/caeaf8243b8511e6b41bed4b7ef64482/stream.webm?audioChannels=2&#038;audioBitrate=128000&#038;videoBitrate=2000000&#038;maxWidth=1280&#038;StartTimeTicks=0&#038;SubtitleStreamIndex=&#038;AudioStreamIndex=1&#038;deviceId=a440977c433637b2669d97aa275785b75d43c8cf&#038;videoCodec=vpx&#038;audioCodec=Vorbis"
     mimeType="video/webm"
     imageUrl="http://upload.wikimedia.org/wikipedia/commons/c/c5/Big_buck_bunny_poster_big.jpg"
     />
